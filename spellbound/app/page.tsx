@@ -1,100 +1,66 @@
+'use client';
+
 import Image from "next/image";
-import Logo from "./images/Spellbound Logo.png";
+import Logo from '@/public/images/Spellbound_Logo.png';
+import BoxArt from '@/public/images/BoxArt.png';
+import Horizontal from '@/public/images/test-horizontal.png';
+import { useState } from 'react';
+import Carousel from "@/components/carousel";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#081124] to-[#020617] font-sans text-white flex items-center justify-center p-8">
-      <main className="w-full max-w-4xl rounded-2xl bg-white/5 backdrop-blur-md border border-white/6 shadow-2xl p-12">
-        <header className="flex items-center gap-6">
+    <div className="font-sans text-white">
+      <nav className="w-full h-12 bg-gradient-to-r from-[#823f85] to-[#447c82] flex items-center justify-center shadow-lg">
+        <a href="#support" className="text-lg font-semibold tracking-wide hover:text-yellow-300 transition-colors duration-200">✨ Support Us Here ✨</a>
+      </nav>
+      <main className="bg-gradient-to-b from-[#000012] via-[#823f85] to-[#447c82] w-full flex flex-col items-center justify-center ">
+
+        <header className="flex flex-col items-center justify-center relative">
           <Image
             src={Logo}
             alt="Spellbound Logo"
-            width={84}
-            height={84}
-            className="rounded-md"
+            className="absolute bg- top-15 md:w-[60%] lg:w-[60%]"
           />
-          <div>
-            <h1 className="text-4xl font-extrabold tracking-tight">
-              Spellbound
-            </h1>
-            <p className="mt-1 text-zinc-300 max-w-xl">
-              A cozy, tactical indie board game of arcane duels, cunning rituals
-              and unexpected alliances. Summon creatures, cast spells, and outwit
-              your opponents in a living fantasy world.
-            </p>
+          <Image
+            src={BoxArt}
+            alt="Box Art"
+            className="rounded-md md:hidden lg:w-[40%] mt-12"
+          />
+          <Image
+            src={Horizontal}
+            alt="Box Art"
+            className="rounded-md hidden md:block w-full lg:w-[100%]"
+          />
+
+          {/* Action Buttons */}
+          <div className=" absolute bottom-20 sm:bottom-30 md:bottom-30 lg:bottom-30 xl:bottom-90 left-1/2 transform -translate-x-1/2 flex gap-6 lg:gap-10 justify-center flex-wrap">
+            <a
+              href="https://discord.gg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lg:w-96 lg:text-[29px] bg-gradient-to-r from-pink-400 via-purple-400 to-pink-300 hover:from-pink-300 hover:via-purple-300 hover:to-pink-200 text-white font-bold py-3 px-8 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-110 hover:shadow-pink-500/50 border-2 border-pink-200 backdrop-blur-sm flex items-center justify-center"
+              style={{
+                boxShadow: '0 0 20px #5662F6, 0 0 40px rgba(236, 72, 153, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              Join Discord
+            </a>
+            <a
+              href="https://kickstarter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lg:w-96 lg:text-[29px] w-min bg-gradient-to-r from-purple-400 via-pink-400 to-purple-300 hover:from-purple-300 hover:via-pink-300 hover:to-purple-200 text-white font-bold py-3 px-8 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-110 hover:shadow-purple-500/50 border-2 border-purple-200 backdrop-blur-sm flex items-center justify-center text-center"
+              style={{
+                boxShadow: '0 0 20px #05CE78, 0 0 40px rgba(236, 72, 153, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              Support Kickstarter
+            </a>
           </div>
         </header>
 
-        <section className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 items-center">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Join the adventure</h2>
-            <p className="text-zinc-300">
-              We're building Spellbound and launching on Kickstarter soon. Follow
-              our journey, back the project, and help bring the magic to life.
-            </p>
+        {/* <Carousel /> */}
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <a
-                href="https://www.kickstarter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500 px-6 py-3 text-black font-semibold shadow hover:scale-[1.02] transition-transform"
-              >
-                Back on Kickstarter
-              </a>
-
-              <a
-                href="https://discord.gg/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-white font-medium hover:bg-white/5 transition-colors"
-              >
-                Join Discord
-              </a>
-            </div>
-
-            <p className="text-sm text-zinc-400">
-              Subscribe for updates, playtests, and exclusive preview content.
-            </p>
-          </div>
-
-          <div className="rounded-xl bg-gradient-to-br from-white/3 to-white/2 p-6 border border-white/6">
-            <h3 className="text-lg font-semibold">Quick Features</h3>
-            <ul className="mt-4 space-y-3 text-zinc-200">
-              <li>• 60–90 minute player-driven matches</li>
-              <li>• Unique spell-crafting system with modular components</li>
-              <li>• Beautiful hand-drawn art and miniature-friendly scale</li>
-              <li>• Solo and cooperative variants</li>
-            </ul>
-
-            <div className="mt-6">
-              <a
-                href="/docs/preview"
-                className="text-sm underline text-zinc-300 hover:text-white"
-              >
-                Read the preview rules
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <footer className="mt-10 border-t border-white/6 pt-6 text-sm text-zinc-400 flex items-center justify-between">
-          <span>© {new Date().getFullYear()} Spellbound — Made with love</span>
-          <div className="flex items-center gap-4">
-            <a
-              href="#"
-              className="text-zinc-300 hover:text-white"
-            >
-              Privacy
-            </a>
-            <a
-              href="#"
-              className="text-zinc-300 hover:text-white"
-            >
-              Contact
-            </a>
-          </div>
-        </footer>
       </main>
     </div>
   );
